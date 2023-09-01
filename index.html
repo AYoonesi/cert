@@ -1,298 +1,163 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script id="script">
-        const S3_BUCKET_BASE_URL = 'https://erwinn.s3.ir-thr-at1.arvanstorage.ir';
-        const BANNER_COLOR_NAME = 'white'; // white, orange, green, yellow, blue, blue-green, black, grey
-        const BANNER_TEXT = 'certs';
-        const SORT_BY='name'; // name, size, date
-        const SORT_TYPE='asc'; // asc, desc
-    </script>
+    <title>Alireza Yoonesi Certs</title>
     <style>
-        * {
-            font-family: -apple-system, 'tahoma', 'sans-serif';
+        body {
+            background-color: #f3f3f3;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
             margin: 0;
         }
-        tr:hover {
-            background-color: #e3e3e3;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
         }
-        tr:first-of-type:hover {
+
+        li {
             background-color: #fff;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            border-left: 1px solid transparent; /* Add transparent vertical lines */
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            white-space: nowrap; /* Ensure text does not wrap */
         }
-        td {
-            padding: 4px 16px;
+
+        li:last-child {
+            border-bottom: none;
         }
-        td b {
-            cursor: pointer;
+
+        li:hover {
+            background-color: #f0f0f0;
         }
-        td b::selection{
-            background-color: transparent;
+
+        a {
+            text-decoration: none;
+            color: #0078d4;
+            font-weight: bold;
         }
-        .banner {
-            padding: 8px;
-            margin: 0 auto 8px;
-            width: 400px;
-            max-width: calc(100%!p(MISSING)x);
-            border-radius: 12px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .certificate-info {
+            flex: 1;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .certificate-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+            white-space: nowrap; /* Ensure name does not wrap */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: ellipsis; /* Display ellipsis (...) if content is truncated */
+        }
+
+        .certificate-details {
+            color: #666;
+            white-space: nowrap; /* Ensure text does not wrap */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: ellipsis; /* Display ellipsis (...) if content is truncated */
+        }
+
+        .download-link {
             text-align: center;
-            background-color: #00baba;
-            color: #fff;
-            font-weight: 600;
         }
-        .banner-color-white {
-            background-color: #fff;
-            color: #000;
-        }
-        .banner-color-orange {
-            background-color: #ff8e00;
-            color: #000;
-        }
-        .banner-color-green {
-            background-color: #7dc409;
-            color: #000;
-        }
-        .banner-color-yellow {
-            background-color: yellow;
-            color: #000;
-        }
-        .banner-color-blue {
-            background-color: blue;
-            color: #fff;
-        }
-        .banner-color-black {
-            background-color: #000;
-            color: #fff;
-        }
-        .banner-color-grey {
-            background-color: #ADADB4;
-            color: #000;
-        }
-        
-        .search {
-            padding: 8px;
-            margin: 8px;
-            border-radius: 8px;
-            border: 1px solid #cacaca;
-            outline: none;
-            width: 420px;
-            max-width: calc(100%!p(MISSING)x);
+
+        @media screen and (max-width: 600px) {
+            /* Adjust styles for smaller screens */
+            .certificate-name,
+            .certificate-details {
+                white-space: initial; /* Allow text to wrap */
+                overflow: initial; /* Allow overflow */
+                text-overflow: initial; /* Remove ellipsis */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="banner" id="banner"></div>
-    <input class="search" type="search" placeholder="search" onkeyup="search(event)">
-    <div id="content"></div>
+    <div class="header">
+        <h1>Alireza Yoonesi Certs</h1>
+    </div>
+    <ul id="fileList"></ul>
+
     <script>
-        let directories = [];
-        let totalItems = [];
-        let totalItemsCopied = [];
-        let sortType = SORT_TYPE;
-        let sortBy = SORT_BY;
-        let table;
+        // List of certificates with file names and details
+        const certificates = [
+            { name: 'cert_cb00864914fd42eb9ebf3cefcbd696_BDC-6KG1BP05_en.png', details: 'Details of Certificate #1' },
+            { name: 'cert_cb00864914fd42eb9ebf3cefcbd696_cyber-sec-SCTCJTN5_en.png', details: 'Details of Certificate #2' },
+            { name: 'cert_cb00864914fd42eb9ebf3cefcbd696_Mathematics-BBVLTQNN_en.png', details: 'Details of Certificate #3' },
+            { name: 'China in Ukraine Conflict.pdf', details: 'Details of Certificate #1' },
+            { name: 'elzamat-kharej-gharardad.pdf', details: 'Details of Certificate #2' },
+            { name: 'PCT101E23.jpg', details: 'Details of Certificate #3' },
+            { name: 'The First International Congress on Advanced Health Technologies-Artificial Intelligence in Medicine - SUMS.jpg', details: 'Details of Certificate #3' },
+            { name: 'qazvin.pdf', details: 'Details of Certificate #3' },
+            { name: 'right-to-peace_en.pdf', details: 'Details of Certificate #3' },
+            // Add more certificates as needed
+        ];
 
-        const initTable = () => {
-            table = document.createElement('table');
-            const th = document.createElement('tr');
-            let htd = document.createElement('td');
-            htd.innerHTML = '<b onclick="toggleTypeAndSortObject(\'date\')">last modified</b>';
-            th.append(htd);
-            htd = document.createElement('td');
-            htd.innerHTML = '<b onclick="toggleTypeAndSortObject(\'size\')">size</b>';
-            th.append(htd);
-            htd = document.createElement('td');
-            htd.innerHTML = '<b>type</b>';
-            th.append(htd);
-            htd = document.createElement('td');
-            htd.innerHTML = '<b onclick="toggleTypeAndSortObject(\'name\')">name</b>';
-            th.append(htd);
-            table.append(th);
+        // Get the <ul> element to which we will add the certificate list
+        const fileList = document.getElementById('fileList');
+
+        // Function to add certificates to the list
+        function addCertificateToList(cert) {
+            const listItem = document.createElement('li');
+            const certificateInfo = document.createElement('div');
+            const certificateName = document.createElement('div');
+            const certificateDetails = document.createElement('div');
+            const downloadLink = document.createElement('a');
+            
+            certificateName.textContent = cert.name;
+            certificateName.className = 'certificate-name';
+            certificateDetails.textContent = `Details: ${cert.details}`;
+            downloadLink.href = cert.name;
+            downloadLink.textContent = 'Download';
+            
+            certificateInfo.appendChild(certificateName);
+            certificateInfo.appendChild(certificateDetails);
+            listItem.appendChild(certificateInfo);
+            listItem.appendChild(downloadLink);
+            fileList.appendChild(listItem);
         }
 
-        (async () => {
-            const banner = document.getElementById('banner');
-            if (!BANNER_TEXT) {
-                banner.style.display = 'none';
-            }
-            banner.innerText = BANNER_TEXT;
-            banner.className = `${banner.className} banner-color-${BANNER_COLOR_NAME}`;
-
-            let url = S3_BUCKET_BASE_URL;
-            url = url.replace(/\/$/, '')
-            const data = await fetch(url);
-            const response = await data.text();
-
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(response,"text/xml");
-            const contents = xmlDoc.getElementsByTagName('Contents');
-
-            if (goBack() !== false) {
-                directories.push('../');
-                // addToTable(table, '../', `?path=${goBack()}`, '', '', '');
-            }
-
-            objects = [];
-            for (let item of contents) {
-                const link = item.childNodes[0].innerHTML;
-                let lastModified = (new Date(item.childNodes[1].innerHTML)).toLocaleString('en-GB');
-                const size = `${parseFloat(parseInt(item.childNodes[3].innerHTML)/1024).toFixed(2)} KB`;
-                let name = item.childNodes[0].innerHTML;
-
-                if (/(\.html)|(\.js)|(\.php)/.test(name)) {
-                    continue;
-                }
-
-                let reg = '';
-                if (getPath() != '/') {
-                    reg = new RegExp('^' + getPath());
-                    if (!reg.test(name)) {
-                        continue;
-                    }
-                }
-
-                name = name.replace(reg, '');
-                if (/\//.test(name)) {
-                    const dirName = (name.split('/'))[0];
-                    if (!directories.includes(dirName)) {
-                        directories.push(dirName);
-                    }
-                    continue;
-                }
-
-                objects.push(checkAccess(`${url}/${link}`, {
-                    name: name,
-                    link: `${url}/${link}`,
-                    size: size,
-                    lastModified: lastModified,
-                    type: 'file',
-                }));                
-            }
-            Promise.all(objects)
-                .then((data) => {
-                    data.forEach(({hasAccess, item}) => {
-                        if (hasAccess) {
-                            totalItems.push(item);
-                        }
-                    })
-                    sortObject();
-                })
-        })();
-
-        const search = (e) => {
-            if (e.keyCode == 13) {
-                const val = e.target.value;
-                if (val) {
-                    totalItemsCopied = [];
-                    totalItems.map((item) => {
-                        const reg = new RegExp(val);
-                        if (reg.test(item.name)) {
-                            totalItemsCopied.push(item)
-                        }
-                    })
-                    sortObject(sortBy, sortType, totalItemsCopied);
-                } else {
-                    totalItemsCopied = totalItems;
-                    sortObject(sortBy, sortType, totalItemsCopied);
-                }
-            }
+        // Function to sort certificates by name
+        function sortCertificatesByName() {
+            certificates.sort((a, b) => {
+                return a.name.localeCompare(b.name);
+            });
+            
+            fileList.innerHTML = ''; // Clear the list
+            certificates.forEach(cert => {
+                addCertificateToList(cert); // Add sorted certificates to the list
+            });
         }
 
-        const toggleTypeAndSortObject = (data, sortBy) => {
-            sortType = sortType == 'asc' ? 'desc' : 'asc'
-            if (!totalItemsCopied.length) {
-                totalItemsCopied = totalItems;
-            }
-            sortObject(sortBy, sortType, totalItemsCopied);
-        }
-        const sortObject = (_sortBy = sortBy, _sortType = sortType, data = totalItems) => {
-            sortBy = _sortBy;
-            sortType = _sortType;
-            initTable();
-
-            directories.map((dir) => {
-                if (dir == '../') {
-                    addToTable(table, '../', `?path=${goBack()}`, '', '', '');
-                } else {
-                    addToTable(table, dir, `?path=${getPath()}${dir}`, 0, '-', 'dir');
-                }
-            })
-            data.sort(function(a,b) {
-                if (_sortBy === 'date') {
-                    return new Date(a.lastModified) - new Date(b.lastModified)
-                }
-                if (_sortBy === 'name') {
-                    return a.name < b.name ? -1: 1;
-                }
-                return parseFloat(a[_sortBy]) - parseFloat(b[_sortBy]);
-            })
-            if (_sortType === 'desc') {
-                data = data.reverse();
-            }
-            data.forEach((item) => {
-                addToTable(table, item.name, item.link, item.size, item.lastModified, item.type);
-            })
-
-            document.getElementById('content').innerHTML = (table.outerHTML);
-        }
-
-        const getPath = () => {
-            const location = window.location.href;
-            if (!/\?/.test(location)) {
-                return '';
-            }
-
-            let path = ((location.split('?'))[1].split('path='))[1];
-            path = path.replace(/^\//, '').replace(/\/$/, '');
-            return path ? path + '/' : path;
-        }
-
-        const checkAccess = async (url, item) => {
-            return new Promise(async (res) => {
-                const controller = new AbortController();
-                const signal = controller.signal
-                const data = await fetch(url, {
-                    signal: signal,
-                })
-                controller.abort();
-                res({
-                    hasAccess: data.status >= 200 && data.status < 300,
-                    item: item,
-                });
-
-                return data.status >= 200 && data.status < 300;
-            })
-        }
-        const addToTable = (table, name, link, size, lastModified, type) => {
-            const tr = document.createElement('tr');
-            let td = document.createElement('td');
-            td.innerHTML = lastModified;
-            tr.append(td);
-            td = document.createElement('td');
-            td.innerHTML = size;
-            tr.append(td);
-            td = document.createElement('td');
-            td.innerHTML = type;
-            tr.append(td);
-            td = document.createElement('td');
-            td.innerHTML = `<a href='${link}'>${name}</a>`;
-            tr.append(td);
-            table.append(tr);
-        }
-        const goBack = () => {
-            if (!getPath()) {
-                return false;
-            }
-
-            const path = getPath().split('/');
-            const lastPage = new RegExp(path[path.length - 2] + '\/$');
-            return getPath().replace(lastPage, '');
-        }
+        // Initial display of all certificates
+        certificates.forEach(cert => {
+            addCertificateToList(cert);
+        });
     </script>
 </body>
 </html>
