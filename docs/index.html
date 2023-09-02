@@ -37,9 +37,9 @@
             border-left: 1px solid transparent; /* Add transparent vertical lines */
             transition: background-color 0.3s;
             display: flex;
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
             justify-content: space-between;
             align-items: center;
-            white-space: nowrap; /* Ensure text does not wrap */
         }
 
         li:last-child {
@@ -47,17 +47,24 @@
         }
 
         li:hover {
-            background-color: #f0f0f0;
+            /*background-color: #f0f0f0;*/
+            color: white;
+            background-color: #494949;
+        }
+
+        li:hover a {
+            color: white;
         }
 
         a {
             text-decoration: none;
-            color: #0078d4;
+            
             font-weight: bold;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: white;
+            font-weight: bolder;
         }
 
         .certificate-info {
@@ -70,52 +77,177 @@
             font-weight: bold;
             font-size: 18px;
             margin-bottom: 5px;
-            white-space: nowrap; /* Ensure name does not wrap */
-            overflow: hidden; /* Hide overflow */
-            text-overflow: ellipsis; /* Display ellipsis (...) if content is truncated */
+            white-space: nowrap; /* Ensure name does not wrap by default */
         }
 
         .certificate-details {
             color: #666;
-            white-space: nowrap; /* Ensure text does not wrap */
-            overflow: hidden; /* Hide overflow */
-            text-overflow: ellipsis; /* Display ellipsis (...) if content is truncated */
+            flex: 1;
+            width: 100%;
+            min-width: 0;
         }
 
-        .download-link {
+        .dlLink {
+            padding: 5px;
+            margin-top: 4px;
+            border: solid 0.5px;
+            color: black;
+            text-decoration: none;
+            /* 
+            text-align: center;
+            flex: 0 0 50px;  #Keep the download link from taking too much space 
+            */
+        }
+
+        .dlLink:hover {
+            color: black;
+            background-color: white;
+            border-color: white;
+            border-width: 2px;
+            /* border-width: 2px;
+            background-color: #e1e1e1;
+            text-underline-offset: 4px;
+            border-radius: 7px;*/
+            margin-top: 2px; 
+        }
+
+        a {
+            position: relative;
+            text-decoration: none;
+          }
+        a::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: black;
+            transform: scaleX(0);
+            transition: transform 0.15s ease;
+          }
+          a:hover::before {
+            transform: scaleX(1);
+          }
+        @media screen and (max-width: 600px) {
+            /* Adjust styles for smaller screens */
+            .certificate-name {
+                white-space: initial; /* Allow the name to wrap to the next line */
+            }
+        }
+
+        .content {
             text-align: center;
         }
 
-        @media screen and (max-width: 600px) {
-            /* Adjust styles for smaller screens */
-            .certificate-name,
-            .certificate-details {
-                white-space: initial; /* Allow text to wrap */
-                overflow: initial; /* Allow overflow */
-                text-overflow: initial; /* Remove ellipsis */
-            }
+        .certsList {
+            text-align: left;
         }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Alireza Yoonesi's Certs Index</h1>
-        <p style="    margin: 5px;        "><a style="font-size: 1.05em; color: #fff;" target="_blank" href="https://github.com/AYoonesi/cert">GitHub repo</a></p>
+        <p><a style="font-size: 1.05em; color: #fff;" target="_blank" href="https://github.com/AYoonesi/cert">GitHub repo</a></p>
+        <p>Welcome to my certificate index. Here you can find details and download links for my certificates.</p>
     </div>
-    <ul id="fileList"></ul>
+    <div class="content">
+        <div>
+            <ul class="certsList" id="fileList"></ul>
+        </div>
+    </div>
 
     <script>
-        // List of certificates with file names and details
+        // List of certificates with cert_name, file_name, and details
+        let tmp = ``;
         const certificates = [
-            { name: 'cert_cb00864914fd42eb9ebf3cefcbd696_BDC-6KG1BP05_en.png', details: 'Details of Certificate #1' },
-            { name: 'cert_cb00864914fd42eb9ebf3cefcbd696_cyber-sec-SCTCJTN5_en.png', details: 'Details of Certificate #2' },
-            { name: 'cert_cb00864914fd42eb9ebf3cefcbd696_Mathematics-BBVLTQNN_en.png', details: 'Details of Certificate #3' },
-            { name: 'China in Ukraine Conflict.pdf', details: 'Details of Certificate #1' },
-            { name: 'elzamat-kharej-gharardad.pdf', details: 'Details of Certificate #2' },
-            { name: 'PCT101E23.jpg', details: 'Details of Certificate #3' },
-            { name: 'The First International Congress on Advanced Health Technologies-Artificial Intelligence in Medicine - SUMS.jpg', details: 'Details of Certificate #3' },
-            { name: 'qazvin.pdf', details: 'Details of Certificate #3' },
-            { name: 'right-to-peace_en.pdf', details: 'Details of Certificate #3' },
+            { cert_name: 'Foundementals & Roudmaps of Data Science', file_name: 'cert_cb00864914fd42eb9ebf3cefcbd696_BDC-6KG1BP05_en.png', details: `
+                Hamrah Academy |
+                Issued Jul 2023 |
+                Credential ID BDC-6KG1BP05 |
+                Skills: Artificial Neural Networks · Machine Learning · Python (Programming Language) · Developer Tools · Linux System Administration · Algorithms · Data Science · Data Analysis
+            `},
+            { cert_name: 'Intro Cyber Security', file_name: 'cert_cb00864914fd42eb9ebf3cefcbd696_cyber-sec-SCTCJTN5_en.png', details: `
+                Hamrah Academy |
+                Issued Aug 2023 |
+                Credential ID: cyber-sec-SCTCJTN5 |
+                Skills: Cybersecurity`
+            },
+            { cert_name: 'Mathematics for Data Science and AI', file_name: 'cert_cb00864914fd42eb9ebf3cefcbd696_Mathematics-BBVLTQNN_en.png', details:`
+                Hamrah Academy |
+                Issued Jul 2023 |
+                Credential ID Mathematics-BBVLTQNN |
+                Skills: Linear Algebra · Statistics · Python (Programming Language) · Mathematics · Optimization · Probability
+            ` },
+            { cert_name: 'Introduction to the Patent Cooperation Treaty', file_name: 'PCT101E23.jpg', details: `
+                World Intellectual Property Organization – WIPO |
+                Issued Aug 2023 |
+                Credential ID ADctIaWHOh |
+                Skills: Private Law · Patent Cooperation Treaty · Intellectual Property · Law · Legal Contract Review · World Intellectual Property Organization · Legal Research
+            ` },
+            { cert_name: 'The first international congress of artificial intelligence in medical sciences', file_name: 'The First International Congress on Advanced Health Technologies-Artificial Intelligence in Medicine - SUMS.jpg', details: `
+                Shiraz University of Medical Sciences |
+                Issued Dec 2021 |
+                Skills: Artificial Neural Networks · Python (Programming Language) · Healthcare Information Technology (HIT) · Presentation Skills · Algorithms · Linux
+            ` },
+            { cert_name: 'Paper Presentation, The second national conference of Islamic wisdom, economy and management', file_name: 'qazvin.pdf', details: `
+                Qazvin Islamic Azad University |
+                Issued Jan 2023 |
+                Credential ID ihome2-02250188 |
+                Skills: University Lecturing · Academic Writing · Private Law · Macroeconomics · Economics · Presentation Skills · Law · Legal Research
+            ` },
+            { cert_name: 'Right to Peace', file_name: 'right-to-peace_en.pdf', details: `
+                IRANIAN PEACE STUDIES SCIENTIFIC ASSOCIATION |
+                Issued Aug 2023 |
+                Credential ID 1000598 |
+                Skills: Private Law · Human Rights · Law
+            ` },
+            { cert_name: 'اصول قراردادنویسی: یازدهمین کارگاه جامع پرورش مشاور حقوقی', file_name: '##########', details: `
+                dadbanan |
+                Issued Jul 2023 |
+                Skills: Private Law · Contract Law · Patent Cooperation Treaty · Intellectual Property · Law · Legal Contract Review · Legal Research
+            ` },
+            { cert_name: 'China\'s Role in the Ukraine Crisis | نقش چین در بحران اوکراین', file_name: 'China in Ukraine Conflict.pdf', details: `
+                Association of Iranian Political Sociology |
+                Issued Mar 2022 |
+                Skills: Political Sociology · Chinese Foreign Policy · Political Science · International Relations · Presentation Skills
+            ` },
+            { cert_name: 'Non-contractual obligations in Iranian Civil Law | الزامات خارج قرارداد', file_name: 'elzamat-kharej-gharardad.pdf', details: `
+                University of QomUniversity of Qom |
+                Issued Sep 2023 |
+                Credential ID د/1402/15116 |
+                Skills: Private Law · Law · Legal Research`
+            },
+            { cert_name: 'اشنایی با مبانی و نقشه راه علوم داده', file_name: 'cert_cb00864914fd42eb9ebf3cefcbd696_BDC-6KG1BP05_fa.png', details: `
+                Hamrah Academy |
+                Issued Jul 2023 |
+                Credential ID BDC-6KG1BP05 |
+                Skills: Artificial Neural Networks · Machine Learning · Python · Developer Tools · Algorithms · Data Science
+            ` },
+            { cert_name: 'ّآشنایی با امنیت سایبری', file_name: 'cert_cb00864914fd42eb9ebf3cefcbd696_cyber-sec-SCTCJTN5_fa.png', details: `
+                Hamrah Academy |
+                Issued Aug 2023 |
+                Credential ID: cyber-sec-SCTCJTN5 |
+                Skills: Cybersecurity`
+            },
+            { cert_name: 'ریاضیات در علوم داده و هوش مصنوعی', file_name: 'cert_cb00864914fd42eb9ebf3cefcbd696_Mathematics-BBVLTQNN_fa.png', details:`
+                Hamrah Academy |
+                Issued Jul 2023 |
+                Credential ID Mathematics-BBVLTQNN |
+                Skills: Linear Algebra · Statistics · Python (Programming Language) · Mathematics · Optimization · Probability
+            ` },
+            { cert_name: 'حق بر صلح', file_name: 'right-to-peace_fa.pdf', details: `
+                IRANIAN PEACE STUDIES SCIENTIFIC ASSOCIATION |
+                Issued Aug 2023 |
+                Credential ID 1000598 |
+                Skills: Private Law · Human Rights · Law
+            ` },
+
+
+
+
+
             // Add more certificates as needed
         ];
 
@@ -130,11 +262,13 @@
             const certificateDetails = document.createElement('div');
             const downloadLink = document.createElement('a');
             
-            certificateName.textContent = cert.name;
+            certificateName.textContent = cert.cert_name;
             certificateName.className = 'certificate-name';
-            certificateDetails.textContent = `Details: ${cert.details}`;
-            downloadLink.href = cert.name;
-            downloadLink.textContent = 'Download';
+            certificateDetails.textContent = `By ${cert.details}`;
+            downloadLink.href = cert.file_name;
+            downloadLink.textContent = 'Download Link';
+            downloadLink.target = "_blank";
+            downloadLink.className = "dlLink";
             
             certificateInfo.appendChild(certificateName);
             certificateInfo.appendChild(certificateDetails);
@@ -146,7 +280,7 @@
         // Function to sort certificates by name
         function sortCertificatesByName() {
             certificates.sort((a, b) => {
-                return a.name.localeCompare(b.name);
+                return a.cert_name.localeCompare(b.cert_name);
             });
             
             fileList.innerHTML = ''; // Clear the list
