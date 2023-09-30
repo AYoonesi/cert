@@ -166,38 +166,46 @@
                 freeCodeCamp |
                 Issued Sep 2023 |
                 Skills: Data Analysis · Data Science · Python (Programming Language)
+            `, explaination: `
+                Python is one of the most popular, flexible programming languages today. You can use it for everything from basic scripting to machine learning.
+
+                In the Scientific Computing with Python Certification, you'll learn Python fundamentals like variables, loops, conditionals, and functions. Then you'll quickly ramp up to complex data structures, networking, relational databases, and data visualization.
             `},
             { cert_name: 'Data Analysis with Python', file_name: 'Data Analysis with Python.jpg', details: `
                 freeCodeCamp |
                 Issued Sep 2023 |
                 Skills: Python (Programming Language) · Creative Problem Solving
+            `, explaination: `
+                Data Analysis has been around for a long time. But up until a few years ago, developers practiced it using expensive, closed-source tools like Tableau. But recently, Python, SQL, and other open libraries have changed Data Analysis forever.
+                In the Data Analysis with Python Certification, you'll learn the fundamentals of data analysis with Python. By the end of this certification, you'll know how to read data from sources like CSVs and SQL, and how to use libraries like Numpy, Pandas, Matplotlib, and Seaborn to process and visualize data.
             `},
             { cert_name: 'Python [Kaggle]', file_name: 'Alireza Yoonesi - Python.png', details: `
                 Kaggle |
                 Issued Sep 2023 |
                 Skills: Python (Programming Language) · Developer Tools
-            `},
+            `, explaination: `Learn the most important language for data science.`},
             { cert_name: 'Intro to Machine Learning [Kaggle]', file_name: 'Alireza Yoonesi - Intro to Machine Learning.png', details: `
                 Kaggle |
                 Issued Sep 2023 |
                 Skills: Machine Learning · Python (Programming Language) · Data Science · Creative Problem Solving
-            `},
+            `, explaination: `Learn the core ideas in machine learning, and build your first models.`},
             { cert_name: 'Governing Sustainable Finance', file_name: 'Alireza-Yoonesi–Governing-Sustainable-Finance–Governing-Sustainable-Finance–ADBI-E-Learning.pdf', details: `
                 Asian Development Bank Institute |
                 Issued Sep 2023 |
                 Credential ID 93898-169-592-8016 |
                 Skills: Governance · Finance · Macroeconomics · Political Science 
-            `},
+            `, explaination: `This course explores the fundamentals of sustainable finance, climate risk assessment, and the integration of environmental, social, and governance (ESG) factors into investment strategies. It consists of 4 units:`},
             { cert_name: 'The Role of Central Banks and Financial Supervisory Authorities in Governing Sustainable Finance [ADBI]', file_name: 'Alireza-Yoonesi–The-Role-of-Central-Banks-and-Financial-Supervisory-Authorities-in-Governing-Sustainable-Finance–The-Role-of-Central-Banks-and-Financial-Supervisory-Authorities-in-Govern.pdf', details: `
                 Asian Development Bank Institute |
                 Issued Sep 2023 |
                 Credential ID 93898-169-595-1730 |
                 Skills: Governance · Finance · Macroeconomics · Political Science 
-            `},
+            `, explaination: `This course discusses the importance of climate change and other environmental challenges for central banks and financial supervisors, and the implications for macroeconomic and financial stability. It also examines possible policy responses, emerging practices, and the way forward.`},
             { cert_name: 'Financial Globalization, Capital Flows, and the Global Financial Cycle [Asian Development Bank Institute', file_name: 'Alireza-Yoonesi–Financial-Globalization-Capital-Flows-and-the-Global-Financial-Cycle–Financial-Globalization-Capital-Flows-and-the-Global-Financial-Cycle–ADBI-E-Learning.pdf', details: `
                 Asian Development Bank Institute |
                 Issued Sep 2023 |
                 Skills: Macroeconomics · Finance
+            `, explaination: `This lecture provides an overview of the benefits of financial globalization and explains why these gains have not always materialized empirically. It also examines the drivers of capital flows in crisis and non-crisis periods and the role of the global financial cycle.
             `},
             { cert_name: 'Foundementals & Roudmaps of Data Science', file_name: 'cert_cb00864914fd42eb9ebf3cefcbd696_BDC-6KG1BP05_en.png', details: `
                 Hamrah Academy |
@@ -222,7 +230,8 @@
                 Issued Aug 2023 |
                 Credential ID ADctIaWHOh |
                 Skills: Private Law · Patent Cooperation Treaty · Intellectual Property · Law · Legal Contract Review · World Intellectual Property Organization · Legal Research
-            ` },
+            `, explaination: `This Distance Learning Course on the Patent Cooperation Treaty (PCT) provides you with an overview of this international treaty administered by the World Intellectual Property Organization.
+                This course was developed by WIPO specialists on the PCT and includes some multiple-choice tests to measure your understanding and progress. In addition to the course material, you will find links to specific reference documents, such as legal texts and other official WIPO documents. By the end of this course, you should have a better understanding of the PCT system and the reasons it should form part of your overall patent strategy.`},
             { cert_name: 'The first international congress of artificial intelligence in medical sciences', file_name: 'The First International Congress on Advanced Health Technologies-Artificial Intelligence in Medicine - SUMS.jpg', details: `
                 Shiraz University of Medical Sciences |
                 Issued Dec 2021 |
@@ -291,11 +300,6 @@
                 Credential ID 310Aleph01 |
                 Skills: Legal Writing · Private Law · Contract Law · Law · Legal Contract Review · Legal Research
             ` },
-
-
-
-
-
             // Add more certificates as needed
         ];
 
@@ -308,11 +312,13 @@
             const certificateInfo = document.createElement('div');
             const certificateName = document.createElement('div');
             const certificateDetails = document.createElement('div');
+            const certificateExplaination = document.createElement('blockquote');
             const downloadLink = document.createElement('a');
             
             certificateName.textContent = cert.cert_name;
             certificateName.className = 'certificate-name';
             certificateDetails.textContent = `By ${cert.details}`;
+            certificateExplaination.textContent = cert.explaination;
             downloadLink.href = cert.file_name;
             downloadLink.textContent = 'Download Link';
             downloadLink.target = "_blank";
@@ -320,6 +326,7 @@
             
             certificateInfo.appendChild(certificateName);
             certificateInfo.appendChild(certificateDetails);
+            certificateInfo.appendChild(certificateExplaination);
             listItem.appendChild(certificateInfo);
             listItem.appendChild(downloadLink);
             fileList.appendChild(listItem);
