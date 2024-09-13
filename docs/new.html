@@ -1,3 +1,298 @@
 
-<!-- saved from url=(0066)https://erwinn.s3.ir-thr-at1.arvanstorage.ir/index.html?versionId= -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="color-scheme" content="light dark"></head><body><div class="line-gutter-backdrop"></div><form autocomplete="off"><label class="line-wrap-control">Line wrap<input type="checkbox" aria-label="Line wrap"></label></form><table><tbody><tr><td class="line-number" value="1"></td><td class="line-content"><span class="html-doctype">&lt;!DOCTYPE html&gt;</span></td></tr><tr><td class="line-number" value="2"></td><td class="line-content"><span class="html-tag">&lt;html <span class="html-attribute-name">lang</span>="<span class="html-attribute-value">en</span>"&gt;</span></td></tr><tr><td class="line-number" value="3"></td><td class="line-content"><span class="html-tag">&lt;head&gt;</span></td></tr><tr><td class="line-number" value="4"></td><td class="line-content">    <span class="html-tag">&lt;meta <span class="html-attribute-name">charset</span>="<span class="html-attribute-value">UTF-8</span>"&gt;</span></td></tr><tr><td class="line-number" value="5"></td><td class="line-content">    <span class="html-tag">&lt;meta <span class="html-attribute-name">http-equiv</span>="<span class="html-attribute-value">X-UA-Compatible</span>" <span class="html-attribute-name">content</span>="<span class="html-attribute-value">IE=edge</span>"&gt;</span></td></tr><tr><td class="line-number" value="6"></td><td class="line-content">    <span class="html-tag">&lt;meta <span class="html-attribute-name">name</span>="<span class="html-attribute-value">viewport</span>" <span class="html-attribute-name">content</span>="<span class="html-attribute-value">width=device-width, initial-scale=1.0</span>"&gt;</span></td></tr><tr><td class="line-number" value="7"></td><td class="line-content">    <span class="html-tag">&lt;script <span class="html-attribute-name">id</span>="<span class="html-attribute-value">script</span>"&gt;</span></td></tr><tr><td class="line-number" value="8"></td><td class="line-content">        const S3_BUCKET_BASE_URL = 'https://erwinn.s3.ir-thr-at1.arvanstorage.ir';</td></tr><tr><td class="line-number" value="9"></td><td class="line-content">        const BANNER_COLOR_NAME = 'white'; // white, orange, green, yellow, blue, blue-green, black, grey</td></tr><tr><td class="line-number" value="10"></td><td class="line-content">        const BANNER_TEXT = 'certs';</td></tr><tr><td class="line-number" value="11"></td><td class="line-content">        const SORT_BY='name'; // name, size, date</td></tr><tr><td class="line-number" value="12"></td><td class="line-content">        const SORT_TYPE='asc'; // asc, desc</td></tr><tr><td class="line-number" value="13"></td><td class="line-content">    <span class="html-tag">&lt;/script&gt;</span></td></tr><tr><td class="line-number" value="14"></td><td class="line-content">    <span class="html-tag">&lt;style&gt;</span></td></tr><tr><td class="line-number" value="15"></td><td class="line-content">        * {</td></tr><tr><td class="line-number" value="16"></td><td class="line-content">            font-family: -apple-system, 'tahoma', 'sans-serif';</td></tr><tr><td class="line-number" value="17"></td><td class="line-content">            margin: 0;</td></tr><tr><td class="line-number" value="18"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="19"></td><td class="line-content">        tr:hover {</td></tr><tr><td class="line-number" value="20"></td><td class="line-content">            background-color: #e3e3e3;</td></tr><tr><td class="line-number" value="21"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="22"></td><td class="line-content">        tr:first-of-type:hover {</td></tr><tr><td class="line-number" value="23"></td><td class="line-content">            background-color: #fff;</td></tr><tr><td class="line-number" value="24"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="25"></td><td class="line-content">        td {</td></tr><tr><td class="line-number" value="26"></td><td class="line-content">            padding: 4px 16px;</td></tr><tr><td class="line-number" value="27"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="28"></td><td class="line-content">        td b {</td></tr><tr><td class="line-number" value="29"></td><td class="line-content">            cursor: pointer;</td></tr><tr><td class="line-number" value="30"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="31"></td><td class="line-content">        td b::selection{</td></tr><tr><td class="line-number" value="32"></td><td class="line-content">            background-color: transparent;</td></tr><tr><td class="line-number" value="33"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="34"></td><td class="line-content">        .banner {</td></tr><tr><td class="line-number" value="35"></td><td class="line-content">            padding: 8px;</td></tr><tr><td class="line-number" value="36"></td><td class="line-content">            margin: 0 auto 8px;</td></tr><tr><td class="line-number" value="37"></td><td class="line-content">            width: 400px;</td></tr><tr><td class="line-number" value="38"></td><td class="line-content">            max-width: calc(100%!p(MISSING)x);</td></tr><tr><td class="line-number" value="39"></td><td class="line-content">            border-radius: 12px;</td></tr><tr><td class="line-number" value="40"></td><td class="line-content">            border-top-left-radius: 0;</td></tr><tr><td class="line-number" value="41"></td><td class="line-content">            border-top-right-radius: 0;</td></tr><tr><td class="line-number" value="42"></td><td class="line-content">            text-align: center;</td></tr><tr><td class="line-number" value="43"></td><td class="line-content">            background-color: #00baba;</td></tr><tr><td class="line-number" value="44"></td><td class="line-content">            color: #fff;</td></tr><tr><td class="line-number" value="45"></td><td class="line-content">            font-weight: 600;</td></tr><tr><td class="line-number" value="46"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="47"></td><td class="line-content">        .banner-color-white {</td></tr><tr><td class="line-number" value="48"></td><td class="line-content">            background-color: #fff;</td></tr><tr><td class="line-number" value="49"></td><td class="line-content">            color: #000;</td></tr><tr><td class="line-number" value="50"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="51"></td><td class="line-content">        .banner-color-orange {</td></tr><tr><td class="line-number" value="52"></td><td class="line-content">            background-color: #ff8e00;</td></tr><tr><td class="line-number" value="53"></td><td class="line-content">            color: #000;</td></tr><tr><td class="line-number" value="54"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="55"></td><td class="line-content">        .banner-color-green {</td></tr><tr><td class="line-number" value="56"></td><td class="line-content">            background-color: #7dc409;</td></tr><tr><td class="line-number" value="57"></td><td class="line-content">            color: #000;</td></tr><tr><td class="line-number" value="58"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="59"></td><td class="line-content">        .banner-color-yellow {</td></tr><tr><td class="line-number" value="60"></td><td class="line-content">            background-color: yellow;</td></tr><tr><td class="line-number" value="61"></td><td class="line-content">            color: #000;</td></tr><tr><td class="line-number" value="62"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="63"></td><td class="line-content">        .banner-color-blue {</td></tr><tr><td class="line-number" value="64"></td><td class="line-content">            background-color: blue;</td></tr><tr><td class="line-number" value="65"></td><td class="line-content">            color: #fff;</td></tr><tr><td class="line-number" value="66"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="67"></td><td class="line-content">        .banner-color-black {</td></tr><tr><td class="line-number" value="68"></td><td class="line-content">            background-color: #000;</td></tr><tr><td class="line-number" value="69"></td><td class="line-content">            color: #fff;</td></tr><tr><td class="line-number" value="70"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="71"></td><td class="line-content">        .banner-color-grey {</td></tr><tr><td class="line-number" value="72"></td><td class="line-content">            background-color: #ADADB4;</td></tr><tr><td class="line-number" value="73"></td><td class="line-content">            color: #000;</td></tr><tr><td class="line-number" value="74"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="75"></td><td class="line-content">        </td></tr><tr><td class="line-number" value="76"></td><td class="line-content">        .search {</td></tr><tr><td class="line-number" value="77"></td><td class="line-content">            padding: 8px;</td></tr><tr><td class="line-number" value="78"></td><td class="line-content">            margin: 8px;</td></tr><tr><td class="line-number" value="79"></td><td class="line-content">            border-radius: 8px;</td></tr><tr><td class="line-number" value="80"></td><td class="line-content">            border: 1px solid #cacaca;</td></tr><tr><td class="line-number" value="81"></td><td class="line-content">            outline: none;</td></tr><tr><td class="line-number" value="82"></td><td class="line-content">            width: 420px;</td></tr><tr><td class="line-number" value="83"></td><td class="line-content">            max-width: calc(100%!p(MISSING)x);</td></tr><tr><td class="line-number" value="84"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="85"></td><td class="line-content">    <span class="html-tag">&lt;/style&gt;</span></td></tr><tr><td class="line-number" value="86"></td><td class="line-content"><span class="html-tag">&lt;/head&gt;</span></td></tr><tr><td class="line-number" value="87"></td><td class="line-content"><span class="html-tag">&lt;body&gt;</span></td></tr><tr><td class="line-number" value="88"></td><td class="line-content">    <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">banner</span>" <span class="html-attribute-name">id</span>="<span class="html-attribute-value">banner</span>"&gt;</span><span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="89"></td><td class="line-content">    <span class="html-tag">&lt;input <span class="html-attribute-name">class</span>="<span class="html-attribute-value">search</span>" <span class="html-attribute-name">type</span>="<span class="html-attribute-value">search</span>" <span class="html-attribute-name">placeholder</span>="<span class="html-attribute-value">search</span>" <span class="html-attribute-name">onkeyup</span>="<span class="html-attribute-value">search(event)</span>"&gt;</span></td></tr><tr><td class="line-number" value="90"></td><td class="line-content">    <span class="html-tag">&lt;div <span class="html-attribute-name">id</span>="<span class="html-attribute-value">content</span>"&gt;</span><span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="91"></td><td class="line-content">    <span class="html-tag">&lt;script&gt;</span></td></tr><tr><td class="line-number" value="92"></td><td class="line-content">        let directories = [];</td></tr><tr><td class="line-number" value="93"></td><td class="line-content">        let totalItems = [];</td></tr><tr><td class="line-number" value="94"></td><td class="line-content">        let totalItemsCopied = [];</td></tr><tr><td class="line-number" value="95"></td><td class="line-content">        let sortType = SORT_TYPE;</td></tr><tr><td class="line-number" value="96"></td><td class="line-content">        let sortBy = SORT_BY;</td></tr><tr><td class="line-number" value="97"></td><td class="line-content">        let table;</td></tr><tr><td class="line-number" value="98"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="99"></td><td class="line-content">        const initTable = () =&gt; {</td></tr><tr><td class="line-number" value="100"></td><td class="line-content">            table = document.createElement('table');</td></tr><tr><td class="line-number" value="101"></td><td class="line-content">            const th = document.createElement('tr');</td></tr><tr><td class="line-number" value="102"></td><td class="line-content">            let htd = document.createElement('td');</td></tr><tr><td class="line-number" value="103"></td><td class="line-content">            htd.innerHTML = '&lt;b onclick="toggleTypeAndSortObject(\'date\')"&gt;last modified&lt;/b&gt;';</td></tr><tr><td class="line-number" value="104"></td><td class="line-content">            th.append(htd);</td></tr><tr><td class="line-number" value="105"></td><td class="line-content">            htd = document.createElement('td');</td></tr><tr><td class="line-number" value="106"></td><td class="line-content">            htd.innerHTML = '&lt;b onclick="toggleTypeAndSortObject(\'size\')"&gt;size&lt;/b&gt;';</td></tr><tr><td class="line-number" value="107"></td><td class="line-content">            th.append(htd);</td></tr><tr><td class="line-number" value="108"></td><td class="line-content">            htd = document.createElement('td');</td></tr><tr><td class="line-number" value="109"></td><td class="line-content">            htd.innerHTML = '&lt;b&gt;type&lt;/b&gt;';</td></tr><tr><td class="line-number" value="110"></td><td class="line-content">            th.append(htd);</td></tr><tr><td class="line-number" value="111"></td><td class="line-content">            htd = document.createElement('td');</td></tr><tr><td class="line-number" value="112"></td><td class="line-content">            htd.innerHTML = '&lt;b onclick="toggleTypeAndSortObject(\'name\')"&gt;name&lt;/b&gt;';</td></tr><tr><td class="line-number" value="113"></td><td class="line-content">            th.append(htd);</td></tr><tr><td class="line-number" value="114"></td><td class="line-content">            table.append(th);</td></tr><tr><td class="line-number" value="115"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="116"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="117"></td><td class="line-content">        (async () =&gt; {</td></tr><tr><td class="line-number" value="118"></td><td class="line-content">            const banner = document.getElementById('banner');</td></tr><tr><td class="line-number" value="119"></td><td class="line-content">            if (!BANNER_TEXT) {</td></tr><tr><td class="line-number" value="120"></td><td class="line-content">                banner.style.display = 'none';</td></tr><tr><td class="line-number" value="121"></td><td class="line-content">            }</td></tr><tr><td class="line-number" value="122"></td><td class="line-content">            banner.innerText = BANNER_TEXT;</td></tr><tr><td class="line-number" value="123"></td><td class="line-content">            banner.className = `${banner.className} banner-color-${BANNER_COLOR_NAME}`;</td></tr><tr><td class="line-number" value="124"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="125"></td><td class="line-content">            let url = S3_BUCKET_BASE_URL;</td></tr><tr><td class="line-number" value="126"></td><td class="line-content">            url = url.replace(/\/$/, '')</td></tr><tr><td class="line-number" value="127"></td><td class="line-content">            const data = await fetch(url);</td></tr><tr><td class="line-number" value="128"></td><td class="line-content">            const response = await data.text();</td></tr><tr><td class="line-number" value="129"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="130"></td><td class="line-content">            const parser = new DOMParser();</td></tr><tr><td class="line-number" value="131"></td><td class="line-content">            const xmlDoc = parser.parseFromString(response,"text/xml");</td></tr><tr><td class="line-number" value="132"></td><td class="line-content">            const contents = xmlDoc.getElementsByTagName('Contents');</td></tr><tr><td class="line-number" value="133"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="134"></td><td class="line-content">            if (goBack() !== false) {</td></tr><tr><td class="line-number" value="135"></td><td class="line-content">                directories.push('../');</td></tr><tr><td class="line-number" value="136"></td><td class="line-content">                // addToTable(table, '../', `?path=${goBack()}`, '', '', '');</td></tr><tr><td class="line-number" value="137"></td><td class="line-content">            }</td></tr><tr><td class="line-number" value="138"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="139"></td><td class="line-content">            objects = [];</td></tr><tr><td class="line-number" value="140"></td><td class="line-content">            for (let item of contents) {</td></tr><tr><td class="line-number" value="141"></td><td class="line-content">                const link = item.childNodes[0].innerHTML;</td></tr><tr><td class="line-number" value="142"></td><td class="line-content">                let lastModified = (new Date(item.childNodes[1].innerHTML)).toLocaleString('en-GB');</td></tr><tr><td class="line-number" value="143"></td><td class="line-content">                const size = `${parseFloat(parseInt(item.childNodes[3].innerHTML)/1024).toFixed(2)} KB`;</td></tr><tr><td class="line-number" value="144"></td><td class="line-content">                let name = item.childNodes[0].innerHTML;</td></tr><tr><td class="line-number" value="145"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="146"></td><td class="line-content">                if (/(\.html)|(\.js)|(\.php)/.test(name)) {</td></tr><tr><td class="line-number" value="147"></td><td class="line-content">                    continue;</td></tr><tr><td class="line-number" value="148"></td><td class="line-content">                }</td></tr><tr><td class="line-number" value="149"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="150"></td><td class="line-content">                let reg = '';</td></tr><tr><td class="line-number" value="151"></td><td class="line-content">                if (getPath() != '/') {</td></tr><tr><td class="line-number" value="152"></td><td class="line-content">                    reg = new RegExp('^' + getPath());</td></tr><tr><td class="line-number" value="153"></td><td class="line-content">                    if (!reg.test(name)) {</td></tr><tr><td class="line-number" value="154"></td><td class="line-content">                        continue;</td></tr><tr><td class="line-number" value="155"></td><td class="line-content">                    }</td></tr><tr><td class="line-number" value="156"></td><td class="line-content">                }</td></tr><tr><td class="line-number" value="157"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="158"></td><td class="line-content">                name = name.replace(reg, '');</td></tr><tr><td class="line-number" value="159"></td><td class="line-content">                if (/\//.test(name)) {</td></tr><tr><td class="line-number" value="160"></td><td class="line-content">                    const dirName = (name.split('/'))[0];</td></tr><tr><td class="line-number" value="161"></td><td class="line-content">                    if (!directories.includes(dirName)) {</td></tr><tr><td class="line-number" value="162"></td><td class="line-content">                        directories.push(dirName);</td></tr><tr><td class="line-number" value="163"></td><td class="line-content">                    }</td></tr><tr><td class="line-number" value="164"></td><td class="line-content">                    continue;</td></tr><tr><td class="line-number" value="165"></td><td class="line-content">                }</td></tr><tr><td class="line-number" value="166"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="167"></td><td class="line-content">                objects.push(checkAccess(`${url}/${link}`, {</td></tr><tr><td class="line-number" value="168"></td><td class="line-content">                    name: name,</td></tr><tr><td class="line-number" value="169"></td><td class="line-content">                    link: `${url}/${link}`,</td></tr><tr><td class="line-number" value="170"></td><td class="line-content">                    size: size,</td></tr><tr><td class="line-number" value="171"></td><td class="line-content">                    lastModified: lastModified,</td></tr><tr><td class="line-number" value="172"></td><td class="line-content">                    type: 'file',</td></tr><tr><td class="line-number" value="173"></td><td class="line-content">                }));                </td></tr><tr><td class="line-number" value="174"></td><td class="line-content">            }</td></tr><tr><td class="line-number" value="175"></td><td class="line-content">            Promise.all(objects)</td></tr><tr><td class="line-number" value="176"></td><td class="line-content">                .then((data) =&gt; {</td></tr><tr><td class="line-number" value="177"></td><td class="line-content">                    data.forEach(({hasAccess, item}) =&gt; {</td></tr><tr><td class="line-number" value="178"></td><td class="line-content">                        if (hasAccess) {</td></tr><tr><td class="line-number" value="179"></td><td class="line-content">                            totalItems.push(item);</td></tr><tr><td class="line-number" value="180"></td><td class="line-content">                        }</td></tr><tr><td class="line-number" value="181"></td><td class="line-content">                    })</td></tr><tr><td class="line-number" value="182"></td><td class="line-content">                    sortObject();</td></tr><tr><td class="line-number" value="183"></td><td class="line-content">                })</td></tr><tr><td class="line-number" value="184"></td><td class="line-content">        })();</td></tr><tr><td class="line-number" value="185"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="186"></td><td class="line-content">        const search = (e) =&gt; {</td></tr><tr><td class="line-number" value="187"></td><td class="line-content">            if (e.keyCode == 13) {</td></tr><tr><td class="line-number" value="188"></td><td class="line-content">                const val = e.target.value;</td></tr><tr><td class="line-number" value="189"></td><td class="line-content">                if (val) {</td></tr><tr><td class="line-number" value="190"></td><td class="line-content">                    totalItemsCopied = [];</td></tr><tr><td class="line-number" value="191"></td><td class="line-content">                    totalItems.map((item) =&gt; {</td></tr><tr><td class="line-number" value="192"></td><td class="line-content">                        const reg = new RegExp(val);</td></tr><tr><td class="line-number" value="193"></td><td class="line-content">                        if (reg.test(item.name)) {</td></tr><tr><td class="line-number" value="194"></td><td class="line-content">                            totalItemsCopied.push(item)</td></tr><tr><td class="line-number" value="195"></td><td class="line-content">                        }</td></tr><tr><td class="line-number" value="196"></td><td class="line-content">                    })</td></tr><tr><td class="line-number" value="197"></td><td class="line-content">                    sortObject(sortBy, sortType, totalItemsCopied);</td></tr><tr><td class="line-number" value="198"></td><td class="line-content">                } else {</td></tr><tr><td class="line-number" value="199"></td><td class="line-content">                    totalItemsCopied = totalItems;</td></tr><tr><td class="line-number" value="200"></td><td class="line-content">                    sortObject(sortBy, sortType, totalItemsCopied);</td></tr><tr><td class="line-number" value="201"></td><td class="line-content">                }</td></tr><tr><td class="line-number" value="202"></td><td class="line-content">            }</td></tr><tr><td class="line-number" value="203"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="204"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="205"></td><td class="line-content">        const toggleTypeAndSortObject = (data, sortBy) =&gt; {</td></tr><tr><td class="line-number" value="206"></td><td class="line-content">            sortType = sortType == 'asc' ? 'desc' : 'asc'</td></tr><tr><td class="line-number" value="207"></td><td class="line-content">            if (!totalItemsCopied.length) {</td></tr><tr><td class="line-number" value="208"></td><td class="line-content">                totalItemsCopied = totalItems;</td></tr><tr><td class="line-number" value="209"></td><td class="line-content">            }</td></tr><tr><td class="line-number" value="210"></td><td class="line-content">            sortObject(sortBy, sortType, totalItemsCopied);</td></tr><tr><td class="line-number" value="211"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="212"></td><td class="line-content">        const sortObject = (_sortBy = sortBy, _sortType = sortType, data = totalItems) =&gt; {</td></tr><tr><td class="line-number" value="213"></td><td class="line-content">            sortBy = _sortBy;</td></tr><tr><td class="line-number" value="214"></td><td class="line-content">            sortType = _sortType;</td></tr><tr><td class="line-number" value="215"></td><td class="line-content">            initTable();</td></tr><tr><td class="line-number" value="216"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="217"></td><td class="line-content">            directories.map((dir) =&gt; {</td></tr><tr><td class="line-number" value="218"></td><td class="line-content">                if (dir == '../') {</td></tr><tr><td class="line-number" value="219"></td><td class="line-content">                    addToTable(table, '../', `?path=${goBack()}`, '', '', '');</td></tr><tr><td class="line-number" value="220"></td><td class="line-content">                } else {</td></tr><tr><td class="line-number" value="221"></td><td class="line-content">                    addToTable(table, dir, `?path=${getPath()}${dir}`, 0, '-', 'dir');</td></tr><tr><td class="line-number" value="222"></td><td class="line-content">                }</td></tr><tr><td class="line-number" value="223"></td><td class="line-content">            })</td></tr><tr><td class="line-number" value="224"></td><td class="line-content">            data.sort(function(a,b) {</td></tr><tr><td class="line-number" value="225"></td><td class="line-content">                if (_sortBy === 'date') {</td></tr><tr><td class="line-number" value="226"></td><td class="line-content">                    return new Date(a.lastModified) - new Date(b.lastModified)</td></tr><tr><td class="line-number" value="227"></td><td class="line-content">                }</td></tr><tr><td class="line-number" value="228"></td><td class="line-content">                if (_sortBy === 'name') {</td></tr><tr><td class="line-number" value="229"></td><td class="line-content">                    return a.name &lt; b.name ? -1: 1;</td></tr><tr><td class="line-number" value="230"></td><td class="line-content">                }</td></tr><tr><td class="line-number" value="231"></td><td class="line-content">                return parseFloat(a[_sortBy]) - parseFloat(b[_sortBy]);</td></tr><tr><td class="line-number" value="232"></td><td class="line-content">            })</td></tr><tr><td class="line-number" value="233"></td><td class="line-content">            if (_sortType === 'desc') {</td></tr><tr><td class="line-number" value="234"></td><td class="line-content">                data = data.reverse();</td></tr><tr><td class="line-number" value="235"></td><td class="line-content">            }</td></tr><tr><td class="line-number" value="236"></td><td class="line-content">            data.forEach((item) =&gt; {</td></tr><tr><td class="line-number" value="237"></td><td class="line-content">                addToTable(table, item.name, item.link, item.size, item.lastModified, item.type);</td></tr><tr><td class="line-number" value="238"></td><td class="line-content">            })</td></tr><tr><td class="line-number" value="239"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="240"></td><td class="line-content">            document.getElementById('content').innerHTML = (table.outerHTML);</td></tr><tr><td class="line-number" value="241"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="242"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="243"></td><td class="line-content">        const getPath = () =&gt; {</td></tr><tr><td class="line-number" value="244"></td><td class="line-content">            const location = window.location.href;</td></tr><tr><td class="line-number" value="245"></td><td class="line-content">            if (!/\?/.test(location)) {</td></tr><tr><td class="line-number" value="246"></td><td class="line-content">                return '';</td></tr><tr><td class="line-number" value="247"></td><td class="line-content">            }</td></tr><tr><td class="line-number" value="248"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="249"></td><td class="line-content">            let path = ((location.split('?'))[1].split('path='))[1];</td></tr><tr><td class="line-number" value="250"></td><td class="line-content">            path = path.replace(/^\//, '').replace(/\/$/, '');</td></tr><tr><td class="line-number" value="251"></td><td class="line-content">            return path ? path + '/' : path;</td></tr><tr><td class="line-number" value="252"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="253"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="254"></td><td class="line-content">        const checkAccess = async (url, item) =&gt; {</td></tr><tr><td class="line-number" value="255"></td><td class="line-content">            return new Promise(async (res) =&gt; {</td></tr><tr><td class="line-number" value="256"></td><td class="line-content">                const controller = new AbortController();</td></tr><tr><td class="line-number" value="257"></td><td class="line-content">                const signal = controller.signal</td></tr><tr><td class="line-number" value="258"></td><td class="line-content">                const data = await fetch(url, {</td></tr><tr><td class="line-number" value="259"></td><td class="line-content">                    signal: signal,</td></tr><tr><td class="line-number" value="260"></td><td class="line-content">                })</td></tr><tr><td class="line-number" value="261"></td><td class="line-content">                controller.abort();</td></tr><tr><td class="line-number" value="262"></td><td class="line-content">                res({</td></tr><tr><td class="line-number" value="263"></td><td class="line-content">                    hasAccess: data.status &gt;= 200 &amp;&amp; data.status &lt; 300,</td></tr><tr><td class="line-number" value="264"></td><td class="line-content">                    item: item,</td></tr><tr><td class="line-number" value="265"></td><td class="line-content">                });</td></tr><tr><td class="line-number" value="266"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="267"></td><td class="line-content">                return data.status &gt;= 200 &amp;&amp; data.status &lt; 300;</td></tr><tr><td class="line-number" value="268"></td><td class="line-content">            })</td></tr><tr><td class="line-number" value="269"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="270"></td><td class="line-content">        const addToTable = (table, name, link, size, lastModified, type) =&gt; {</td></tr><tr><td class="line-number" value="271"></td><td class="line-content">            const tr = document.createElement('tr');</td></tr><tr><td class="line-number" value="272"></td><td class="line-content">            let td = document.createElement('td');</td></tr><tr><td class="line-number" value="273"></td><td class="line-content">            td.innerHTML = lastModified;</td></tr><tr><td class="line-number" value="274"></td><td class="line-content">            tr.append(td);</td></tr><tr><td class="line-number" value="275"></td><td class="line-content">            td = document.createElement('td');</td></tr><tr><td class="line-number" value="276"></td><td class="line-content">            td.innerHTML = size;</td></tr><tr><td class="line-number" value="277"></td><td class="line-content">            tr.append(td);</td></tr><tr><td class="line-number" value="278"></td><td class="line-content">            td = document.createElement('td');</td></tr><tr><td class="line-number" value="279"></td><td class="line-content">            td.innerHTML = type;</td></tr><tr><td class="line-number" value="280"></td><td class="line-content">            tr.append(td);</td></tr><tr><td class="line-number" value="281"></td><td class="line-content">            td = document.createElement('td');</td></tr><tr><td class="line-number" value="282"></td><td class="line-content">            td.innerHTML = `&lt;a href='${link}'&gt;${name}&lt;/a&gt;`;</td></tr><tr><td class="line-number" value="283"></td><td class="line-content">            tr.append(td);</td></tr><tr><td class="line-number" value="284"></td><td class="line-content">            table.append(tr);</td></tr><tr><td class="line-number" value="285"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="286"></td><td class="line-content">        const goBack = () =&gt; {</td></tr><tr><td class="line-number" value="287"></td><td class="line-content">            if (!getPath()) {</td></tr><tr><td class="line-number" value="288"></td><td class="line-content">                return false;</td></tr><tr><td class="line-number" value="289"></td><td class="line-content">            }</td></tr><tr><td class="line-number" value="290"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="291"></td><td class="line-content">            const path = getPath().split('/');</td></tr><tr><td class="line-number" value="292"></td><td class="line-content">            const lastPage = new RegExp(path[path.length - 2] + '\/$');</td></tr><tr><td class="line-number" value="293"></td><td class="line-content">            return getPath().replace(lastPage, '');</td></tr><tr><td class="line-number" value="294"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="295"></td><td class="line-content">    <span class="html-tag">&lt;/script&gt;</span></td></tr><tr><td class="line-number" value="296"></td><td class="line-content"><span class="html-tag">&lt;/body&gt;</span></td></tr><tr><td class="line-number" value="297"></td><td class="line-content"><span class="html-tag">&lt;/html&gt;</span><span class="html-end-of-file"></span></td></tr></tbody></table></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script id="script">
+        const S3_BUCKET_BASE_URL = 'https://erwinn.s3.ir-thr-at1.arvanstorage.ir';
+        const BANNER_COLOR_NAME = 'white'; // white, orange, green, yellow, blue, blue-green, black, grey
+        const BANNER_TEXT = 'certs';
+        const SORT_BY='name'; // name, size, date
+        const SORT_TYPE='asc'; // asc, desc
+    </script>
+    <style>
+        * {
+            font-family: -apple-system, 'tahoma', 'sans-serif';
+            margin: 0;
+        }
+        tr:hover {
+            background-color: #e3e3e3;
+        }
+        tr:first-of-type:hover {
+            background-color: #fff;
+        }
+        td {
+            padding: 4px 16px;
+        }
+        td b {
+            cursor: pointer;
+        }
+        td b::selection{
+            background-color: transparent;
+        }
+        .banner {
+            padding: 8px;
+            margin: 0 auto 8px;
+            width: 400px;
+            max-width: calc(100%!p(MISSING)x);
+            border-radius: 12px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            text-align: center;
+            background-color: #00baba;
+            color: #fff;
+            font-weight: 600;
+        }
+        .banner-color-white {
+            background-color: #fff;
+            color: #000;
+        }
+        .banner-color-orange {
+            background-color: #ff8e00;
+            color: #000;
+        }
+        .banner-color-green {
+            background-color: #7dc409;
+            color: #000;
+        }
+        .banner-color-yellow {
+            background-color: yellow;
+            color: #000;
+        }
+        .banner-color-blue {
+            background-color: blue;
+            color: #fff;
+        }
+        .banner-color-black {
+            background-color: #000;
+            color: #fff;
+        }
+        .banner-color-grey {
+            background-color: #ADADB4;
+            color: #000;
+        }
+        
+        .search {
+            padding: 8px;
+            margin: 8px;
+            border-radius: 8px;
+            border: 1px solid #cacaca;
+            outline: none;
+            width: 420px;
+            max-width: calc(100%!p(MISSING)x);
+        }
+    </style>
+</head>
+<body>
+    <div class="banner" id="banner"></div>
+    <input class="search" type="search" placeholder="search" onkeyup="search(event)">
+    <div id="content"></div>
+    <script>
+        let directories = [];
+        let totalItems = [];
+        let totalItemsCopied = [];
+        let sortType = SORT_TYPE;
+        let sortBy = SORT_BY;
+        let table;
+
+        const initTable = () => {
+            table = document.createElement('table');
+            const th = document.createElement('tr');
+            let htd = document.createElement('td');
+            htd.innerHTML = '<b onclick="toggleTypeAndSortObject(\'date\')">last modified</b>';
+            th.append(htd);
+            htd = document.createElement('td');
+            htd.innerHTML = '<b onclick="toggleTypeAndSortObject(\'size\')">size</b>';
+            th.append(htd);
+            htd = document.createElement('td');
+            htd.innerHTML = '<b>type</b>';
+            th.append(htd);
+            htd = document.createElement('td');
+            htd.innerHTML = '<b onclick="toggleTypeAndSortObject(\'name\')">name</b>';
+            th.append(htd);
+            table.append(th);
+        }
+
+        (async () => {
+            const banner = document.getElementById('banner');
+            if (!BANNER_TEXT) {
+                banner.style.display = 'none';
+            }
+            banner.innerText = BANNER_TEXT;
+            banner.className = `${banner.className} banner-color-${BANNER_COLOR_NAME}`;
+
+            let url = S3_BUCKET_BASE_URL;
+            url = url.replace(/\/$/, '')
+            const data = await fetch(url);
+            const response = await data.text();
+
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(response,"text/xml");
+            const contents = xmlDoc.getElementsByTagName('Contents');
+
+            if (goBack() !== false) {
+                directories.push('../');
+                // addToTable(table, '../', `?path=${goBack()}`, '', '', '');
+            }
+
+            objects = [];
+            for (let item of contents) {
+                const link = item.childNodes[0].innerHTML;
+                let lastModified = (new Date(item.childNodes[1].innerHTML)).toLocaleString('en-GB');
+                const size = `${parseFloat(parseInt(item.childNodes[3].innerHTML)/1024).toFixed(2)} KB`;
+                let name = item.childNodes[0].innerHTML;
+
+                if (/(\.html)|(\.js)|(\.php)/.test(name)) {
+                    continue;
+                }
+
+                let reg = '';
+                if (getPath() != '/') {
+                    reg = new RegExp('^' + getPath());
+                    if (!reg.test(name)) {
+                        continue;
+                    }
+                }
+
+                name = name.replace(reg, '');
+                if (/\//.test(name)) {
+                    const dirName = (name.split('/'))[0];
+                    if (!directories.includes(dirName)) {
+                        directories.push(dirName);
+                    }
+                    continue;
+                }
+
+                objects.push(checkAccess(`${url}/${link}`, {
+                    name: name,
+                    link: `${url}/${link}`,
+                    size: size,
+                    lastModified: lastModified,
+                    type: 'file',
+                }));                
+            }
+            Promise.all(objects)
+                .then((data) => {
+                    data.forEach(({hasAccess, item}) => {
+                        if (hasAccess) {
+                            totalItems.push(item);
+                        }
+                    })
+                    sortObject();
+                })
+        })();
+
+        const search = (e) => {
+            if (e.keyCode == 13) {
+                const val = e.target.value;
+                if (val) {
+                    totalItemsCopied = [];
+                    totalItems.map((item) => {
+                        const reg = new RegExp(val);
+                        if (reg.test(item.name)) {
+                            totalItemsCopied.push(item)
+                        }
+                    })
+                    sortObject(sortBy, sortType, totalItemsCopied);
+                } else {
+                    totalItemsCopied = totalItems;
+                    sortObject(sortBy, sortType, totalItemsCopied);
+                }
+            }
+        }
+
+        const toggleTypeAndSortObject = (data, sortBy) => {
+            sortType = sortType == 'asc' ? 'desc' : 'asc'
+            if (!totalItemsCopied.length) {
+                totalItemsCopied = totalItems;
+            }
+            sortObject(sortBy, sortType, totalItemsCopied);
+        }
+        const sortObject = (_sortBy = sortBy, _sortType = sortType, data = totalItems) => {
+            sortBy = _sortBy;
+            sortType = _sortType;
+            initTable();
+
+            directories.map((dir) => {
+                if (dir == '../') {
+                    addToTable(table, '../', `?path=${goBack()}`, '', '', '');
+                } else {
+                    addToTable(table, dir, `?path=${getPath()}${dir}`, 0, '-', 'dir');
+                }
+            })
+            data.sort(function(a,b) {
+                if (_sortBy === 'date') {
+                    return new Date(a.lastModified) - new Date(b.lastModified)
+                }
+                if (_sortBy === 'name') {
+                    return a.name < b.name ? -1: 1;
+                }
+                return parseFloat(a[_sortBy]) - parseFloat(b[_sortBy]);
+            })
+            if (_sortType === 'desc') {
+                data = data.reverse();
+            }
+            data.forEach((item) => {
+                addToTable(table, item.name, item.link, item.size, item.lastModified, item.type);
+            })
+
+            document.getElementById('content').innerHTML = (table.outerHTML);
+        }
+
+        const getPath = () => {
+            const location = window.location.href;
+            if (!/\?/.test(location)) {
+                return '';
+            }
+
+            let path = ((location.split('?'))[1].split('path='))[1];
+            path = path.replace(/^\//, '').replace(/\/$/, '');
+            return path ? path + '/' : path;
+        }
+
+        const checkAccess = async (url, item) => {
+            return new Promise(async (res) => {
+                const controller = new AbortController();
+                const signal = controller.signal
+                const data = await fetch(url, {
+                    signal: signal,
+                })
+                controller.abort();
+                res({
+                    hasAccess: data.status >= 200 && data.status < 300,
+                    item: item,
+                });
+
+                return data.status >= 200 && data.status < 300;
+            })
+        }
+        const addToTable = (table, name, link, size, lastModified, type) => {
+            const tr = document.createElement('tr');
+            let td = document.createElement('td');
+            td.innerHTML = lastModified;
+            tr.append(td);
+            td = document.createElement('td');
+            td.innerHTML = size;
+            tr.append(td);
+            td = document.createElement('td');
+            td.innerHTML = type;
+            tr.append(td);
+            td = document.createElement('td');
+            td.innerHTML = `<a href='${link}'>${name}</a>`;
+            tr.append(td);
+            table.append(tr);
+        }
+        const goBack = () => {
+            if (!getPath()) {
+                return false;
+            }
+
+            const path = getPath().split('/');
+            const lastPage = new RegExp(path[path.length - 2] + '\/$');
+            return getPath().replace(lastPage, '');
+        }
+    </script>
+</body>
+</html>
